@@ -1,5 +1,5 @@
 from typing import Union
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
 from fastapi.responses import Response
 from python_ms_core import Core
 
@@ -32,3 +32,9 @@ async def download():
         headers={'Content-Disposition': f'attachment; filename={first_file.name}'},
         status_code=200
     )
+
+
+@app.post('/logs')
+async def logs(info : Request):
+    req_info = await info.json()
+    return req_info
