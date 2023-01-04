@@ -8,7 +8,6 @@ from python_ms_core.core.queue.models.queue_message import QueueMessage
 TOPIC = 'gtfs-flex-upload'
 SUBSCRIPTION = 'uploadprocessor'
 CONTAINER_NAME = 'tdei-storage-test'
-LOG_QUEUE_NAME = 'tdei-ms-log'
 
 
 def test_topics():
@@ -55,7 +54,7 @@ def test_storage():
 
 def test_logger():
     print('\n\nTesting Logger')
-    logger = Core.get_logger(queue_name=LOG_QUEUE_NAME)
+    logger = Core.get_logger()
     print('Sending Add Request Log')
     logger.add_request({
         'sample': 'text'
@@ -75,26 +74,26 @@ def test_logger():
     print('Sent Record Metric Log \n')
 
 
-def test_local_logger():
-    print('\n\nTesting Local Logger')
-    logger = Core.get_logger(provider='Local')
-    print('Sending Add Request Log Locally')
-    logger.add_request({
-        'sample': 'text'
-    })
-    print('Sent Add Request Log \n')
-
-    print('Sending Info Log Locally')
-    logger.info(message='Info Message')
-    print('Sent Info Log \n')
-
-    print('Sending Debug Log Locally')
-    logger.debug(message='Debug Message')
-    print('Sent Debug Log \n')
-
-    print('Sending Record Metric Log Locally')
-    logger.record_metric(name='ABC', value='XYZ')
-    print('Sent Record Metric Log \n')
+# def test_local_logger():
+#     print('\n\nTesting Local Logger')
+#     logger = Core.get_logger(provider='Local')
+#     print('Sending Add Request Log Locally')
+#     logger.add_request({
+#         'sample': 'text'
+#     })
+#     print('Sent Add Request Log \n')
+#
+#     print('Sending Info Log Locally')
+#     logger.info(message='Info Message')
+#     print('Sent Info Log \n')
+#
+#     print('Sending Debug Log Locally')
+#     logger.debug(message='Debug Message')
+#     print('Sent Debug Log \n')
+#
+#     print('Sending Record Metric Log Locally')
+#     logger.record_metric(name='ABC', value='XYZ')
+#     print('Sent Record Metric Log \n')
 
 
 if __name__ == "__main__":
@@ -103,4 +102,4 @@ if __name__ == "__main__":
     test_storage()
     test_logger()
     # Make sure to run the server before running the local logger
-    test_local_logger()
+    # test_local_logger()
