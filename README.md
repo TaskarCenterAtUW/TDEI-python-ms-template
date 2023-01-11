@@ -17,9 +17,6 @@ python 3.10
 
 `pip install -r requirements.txt`
 
-#### Install Python MS Core Package
-
-`pip install -i https://test.pypi.org/simple/ python-ms-core`
 
 #### Set up env file, create a .env file at project root level 
 
@@ -51,10 +48,6 @@ Go to project location and activate the conda environment
 #### Install requirements
 
 `pip install -r requirements.txt`
-
-#### Install Python MS Core Package
-
-`pip install -i https://test.pypi.org/simple/ python-ms-core`
 
 #### Set up environment variables 
 Run the below commands to setup the environment variables
