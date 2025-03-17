@@ -76,6 +76,3 @@ Note: Replace the endpoints with the actual endpoints
 
 `uvicorn src.main:app --reload`
 
-### Run the examples
-
-`python src/example.py`
