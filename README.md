@@ -2,6 +2,17 @@
 ## Introduction 
 This micro-service acts as example for creating all the new micro-services for TDEI project in Python. The reference code can be used in other micro-services.
 
+This template has the following
+- config.py
+This file is used to maintain all the configurations required for running the application.
+
+- processing_service.py
+This file and the classes within are used to interact with the service bus messages (incoming and outgoing)
+
+- storage_service.py
+This file and the classes within are used to interact with the remote file storage.
+
+
 ## Requirements
 python 3.10
 
@@ -22,20 +33,23 @@ python 3.10
 
 ```
 PROVIDER=Azure
-LOGGERQUEUE=Endpoint=sb://xxxxxxxxxxxxx
 QUEUECONNECTION=Endpoint=sb://xxxxxxxxxxxxx
 STORAGECONNECTION=DefaultEndpointsProtocol=https;xxxxxxxxxxxxx
-CALLBACK_URL=http://127.0.0.1:8000/logs
 ```
 Note: Replace the endpoints with the actual endpoints
+
+#### Configure the incoming and outgoing subscription and topic 
+Change the following parameters in [config.py](./src/config.py)
+```python
+incoming_topic: str = 'incoming-topic' # Change this
+incoming_topic_subscription: str = 'incoming-sub' # Change this
+outgoing_topic: str = 'outgoing-topic' # Change this
+```
 
 ### Run the Server
 
 `uvicorn src.main:app --reload`
 
-### Run the examples
-
-`python src/example.py`
 
 
 ## How to run the project with Anaconda
@@ -53,10 +67,8 @@ Go to project location and activate the conda environment
 Run the below commands to setup the environment variables
 ```
 export PROVIDER="Azure"
-export LOGGERQUEUE="Endpoint=sb://xxxxxxxxxxxxx"
 export QUEUECONNECTION="Endpoint=sb://xxxxxxxxxxxxx"
 export STORAGECONNECTION="DefaultEndpointsProtocol=https;xxxxxxxxxxxxx"
-export CALLBACK_URL="http://127.0.0.1:8000/logs"
 ```
 Note: Replace the endpoints with the actual endpoints
 
