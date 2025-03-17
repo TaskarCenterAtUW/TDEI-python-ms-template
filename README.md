@@ -3,13 +3,13 @@
 This micro-service acts as example for creating all the new micro-services for TDEI project in Python. The reference code can be used in other micro-services.
 
 This template has the following
-- config.py
+- [config.py](./src/config.py)
 This file is used to maintain all the configurations required for running the application.
 
-- processing_service.py
+- [processing_service.py](./src/processing_service.py)
 This file and the classes within are used to interact with the service bus messages (incoming and outgoing)
 
-- storage_service.py
+- [storage_service.py](./src/storage_service.py)
 This file and the classes within are used to interact with the remote file storage.
 
 

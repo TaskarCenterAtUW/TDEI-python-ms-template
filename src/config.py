@@ -11,6 +11,7 @@ load_dotenv()
 class Settings(BaseSettings):
     """
     Settings class for loading and managing environment variables.
+    Add any other variables or methods as required by the service.
 
     Attributes:
         app_name (str): The name of the application. Change this as per the need of your own service.
